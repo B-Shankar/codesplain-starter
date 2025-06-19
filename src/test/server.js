@@ -13,10 +13,16 @@ export function createServer(handlerConfig) {
 
   const server = setupServer(...handler);
 
-  beforeAll(() => server.listen());
+  beforeAll(() => {
+    server.listen();
+  });
 
-  afterEach(() => server.resetHandlers());
+  afterEach(() => {
+    server.resetHandlers();
+  });
 
-  afterAll(() => server.close());
+  afterAll(() => {
+    server.close();
+  });
 
 }
